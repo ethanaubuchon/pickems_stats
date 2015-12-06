@@ -29,12 +29,13 @@ func AddGame(game Game) {
   games[game.Date + game.Time + game.HomeTeam.Short + game.AwayTeam.Short] = game
 }
 
-// func GetGame(date string, time string, homeShort string, awayShort string) (Game, boolean) {
-//   if games == nil {
-//     return nil, false
-//   }
-//   return games[string]Game
-// }
+func GetGame(date string, time string, homeShort string, awayShort string) (Game, bool) {
+  if games == nil {
+    return Game{}, false
+  }
+  game, ok := games[date + time + homeShort + awayShort]
+  return game, ok
+}
 
 func GetGames() (map[string]Game) {
   return games
